@@ -12,11 +12,11 @@ const addTodo = () => {
         return false;
     }
 
-    if (addBtn.value === "Edit") {
+    if (addBtn.value === "Update") {
         // Passing the original text to editLocalTodos function before edit it in the todoList
         editLocalTodos(editTodo.target.previousElementSibling.innerHTML);
         editTodo.target.previousElementSibling.innerHTML = inputText;
-        addBtn.value = "Add";
+        addBtn.value = "Add Task";
         inputBox.value = "";
     }
     else {
@@ -29,7 +29,7 @@ const addTodo = () => {
 
         // Creating Edit Btn
         const editBtn = document.createElement("button");
-        editBtn.innerText = "Edit";
+        editBtn.innerText = "Update";
         editBtn.classList.add("btn", "editBtn");
         li.appendChild(editBtn);
 
@@ -53,10 +53,10 @@ const updateTodo = (e) => {
         deleteLocalTodos(e.target.parentElement);
     }
 
-    if (e.target.innerHTML === "Edit") {
+    if (e.target.innerHTML === "Update") {
         inputBox.value = e.target.previousElementSibling.innerHTML;
         inputBox.focus();
-        addBtn.value = "Edit";
+        addBtn.value = "Update";
         editTodo = e;
     }
 }
@@ -93,7 +93,7 @@ const getLocalTodos = () => {
 
             // Creating Edit Btn
             const editBtn = document.createElement("button");
-            editBtn.innerText = "Edit";
+            editBtn.innerText = "Update";
             editBtn.classList.add("btn", "editBtn");
             li.appendChild(editBtn);
 

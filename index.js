@@ -40,7 +40,6 @@ app.post('/todos', (req, res) => {
   const newTodo = {
     id: Math.floor(Math.random() * 1000000), // unique random id
     title: req.body.title,
-    description: req.body.description
   };
   todos.push(newTodo);
   res.status(201).json(newTodo);
@@ -52,7 +51,6 @@ app.put('/todos/:id', (req, res) => {
     res.status(404).send();
   } else {
     todos[todoIndex].title = req.body.title;
-    todos[todoIndex].description = req.body.description;
     res.json(todos[todoIndex]);
   }
 });
